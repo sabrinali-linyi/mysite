@@ -16,15 +16,22 @@ from pathlib import Path
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 
-# Quick-start development settings - unsuitable for production
-# See https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/
-
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
 SESSION_COOKIE_SECURE = True
 
-ALLOWED_HOSTS = ["myapp-blueprint.herokuapp.com", "127.0.0.1:5000", "localhost"]
+ALLOWED_HOSTS = ["myapp-blueprint.herokuapp.com", "127.0.0.1"]
+
+import dotenv
+import os
+
+dotenv_file = os.path.join(BASE_DIR, ".env")
+if os.path.isfile(dotenv_file):
+    dotenv.load_dotenv(dotenv_file)
+
+# UPDATE secret key
+SECRET_KEY = os.environ['SECRET_KEY']
 
 
 # Application definition
