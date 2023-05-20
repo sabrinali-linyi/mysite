@@ -27,11 +27,11 @@ CONFIG.read(BASE_DIR / "config.ini")
 SECRET_KEY = CONFIG.get("Django", "secret")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 SESSION_COOKIE_SECURE = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["https://myapp-blueprint.herokuapp.com/", "127.0.0.1"]
 
 
 # Application definition
