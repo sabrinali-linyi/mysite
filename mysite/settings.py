@@ -11,7 +11,7 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 """
 
 from pathlib import Path
-from configparser import ConfigParser
+import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -23,11 +23,7 @@ DEBUG = False
 SESSION_COOKIE_SECURE = True
 
 ALLOWED_HOSTS = ["myapp-blueprint.herokuapp.com", "127.0.0.1"]
-CONFIG = ConfigParser()
-CONFIG.read(BASE_DIR / "config.ini")
-
-# SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = CONFIG.get("Django", "secret")
+SECRET_KEY = os.getenv('SECRET_KEY')
 
 
 # Application definition
