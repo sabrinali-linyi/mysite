@@ -28,7 +28,7 @@ def screener_endpoint(request):
         # Retrieve the domain mapping from the json file
         domains_path = finders.find('myapp/domains.json')
         with open(domains_path) as f:
-            domains = open("myapp/static/domains.json").read()
+            domains = f.read()
             domain_mapping = json.loads(domains)
             question_to_domain = {}
             for dict in domain_mapping:
