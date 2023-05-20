@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Screener Form</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="../static/base.js" type="text/javascript"></script>
+    <link href="../static/base.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+    <h1>{{ display_name }}</h1>
+    
+    {% for section in sections %}
+        <h3>{{ section.title }}</h2>
+        <div id="progress" value={{ section.total_questions }}>1 / {{ section.total_questions }}</div>
+        
+        {% for question in section.questions %}
+        <div class="question" id="question-{{ forloop.counter0 }}" value={{ question.question_id }}>
+            <h3>{{ question.title }}</h3>
+            {% for answer in section.answers %}
+                <button class="answer-btn" id="answer-{{ forloop.counter0 }}" value="{{ answer.value }}">{{ answer.title }}</button>
+            {% endfor %}
+        </div>
+        {% endfor %}
+    {% endfor %}
+</body>
