@@ -1,7 +1,6 @@
 asgiref==3.6.0
 dj-database-url==2.0.0
 Django==3.2.5
-django-on-heroku==1.1.2
 psycopg2-binary==2.9.6
 pytz==2023.3
 sqlparse==0.4.4

@@ -24,7 +24,7 @@ DEBUG = False
 
 SESSION_COOKIE_SECURE = True
 
-ALLOWED_HOSTS = ["https://myapp-blueprint.herokuapp.com/", "127.0.0.1"]
+ALLOWED_HOSTS = ["myapp-blueprint.herokuapp.com", "127.0.0.1:5000", "localhost"]
 
 
 # Application definition
@@ -115,6 +115,3 @@ STATIC_URL = "static/"
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
-
-import django_on_heroku
-django_on_heroku.settings(locals())
