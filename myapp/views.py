@@ -1,7 +1,9 @@
 from django.http import JsonResponse
-from django.views.decorators.csrf import csrf_exempt
 import json
 from django.shortcuts import render
+
+from django.core.management.utils import get_random_secret_key
+print(get_random_secret_key())
 
 def screener_form(request):
     screener = open("myapp/static/screener.json").read()
@@ -16,8 +18,6 @@ def screener_form(request):
         context['sections'][index] = sec
     return render(request, 'screener_form.html', context)
 
-
-@csrf_exempt
 def screener_endpoint(request):
     if request.method == 'POST':
         data = json.loads(request.body)

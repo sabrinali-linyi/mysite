@@ -27,7 +27,9 @@ CONFIG.read(BASE_DIR / "config.ini")
 SECRET_KEY = CONFIG.get("Django", "secret")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
+
+SESSION_COOKIE_SECURE = True
 
 ALLOWED_HOSTS = []
 
@@ -120,3 +122,6 @@ STATIC_URL = "static/"
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+
+import django_on_heroku
+django_on_heroku.settings(locals())
